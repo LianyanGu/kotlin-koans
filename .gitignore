@@ -8,6 +8,7 @@ local.properties
 # Gradle
 .gradle
 build
+settings.gradle
 
 # Eclipse
 bin
