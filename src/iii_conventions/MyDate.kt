@@ -9,8 +9,12 @@ data class MyDate(val year: Int, val month: Int, val dayOfMonth: Int): Comparabl
         }
     }
 }
+class RepeatedTimeInterval(val ti: TimeInterval, val n: Int)
 
 operator fun MyDate.rangeTo(other: MyDate): DateRange = DateRange(this, other)
+operator fun TimeInterval.times(num: Int) = RepeatedTimeInterval(this, num)
+operator fun MyDate.plus(timeInterval: TimeInterval) = addTimeIntervals(timeInterval,1)
+operator fun MyDate.plus(timeIntervals: RepeatedTimeInterval) = addTimeIntervals(timeIntervals.ti, timeIntervals.n)
 
 enum class TimeInterval {
     DAY,
